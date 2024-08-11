@@ -1,6 +1,7 @@
 <script setup>
 import HeaderView from '@/layout/Header.vue'
 import Sidebar from '@/layout/Sidebar.vue'
+import Main from '@/layout/Main.vue'
 </script>
 
 <template>
@@ -8,9 +9,8 @@ import Sidebar from '@/layout/Sidebar.vue'
     <HeaderView class="header" />
     <div class="middle">
       <Sidebar class="aside" />
-      <main class="main">
-        <router-view />
-      </main>
+
+      <Main class="main" />
     </div>
     <footer>底部</footer>
   </div>
@@ -32,6 +32,7 @@ import Sidebar from '@/layout/Sidebar.vue'
 .middle {
   flex: 1;
   padding: 10px;
+  gap: 10px;
   background-color: var(--color-background);
 
   display: flex;
