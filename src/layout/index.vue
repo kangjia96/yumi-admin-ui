@@ -39,10 +39,15 @@ import Main from '@/layout/Main.vue'
 
   .aside {
     width: 200px;
-    background-color: #01161e;
+    min-width: 200px;
+    //background-color: var(--color-background-soft);
   }
   .main {
     flex: 1;
+    width: calc(100vw - 230px);
+    min-width: calc(100vw - 230px);
+    height: calc(100vh - 60px - 40px - 20px);
+    min-height: calc(100vh - 60px - 40px - 20px);
   }
 }
 

@@ -35,6 +35,7 @@ const handleCurrentChange = (val) => {
 <style scoped>
 .pagination {
   float: right;
+  height: 60px;
   margin-top: 10px;
   margin-bottom: 10px;
 }

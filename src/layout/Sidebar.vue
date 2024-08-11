@@ -10,8 +10,14 @@ console.log(router.getRoutes())
 
 <template>
   <aside>
-    <nav></nav>
+    <nav class="nav"></nav>
   </aside>
 </template>
 
-<style scoped></style>
+<style scoped>
+.nav {
+  height: 300px;
+  background-color: var(--color-background-soft);
+  border-radius: 5px;
+}
+</style>

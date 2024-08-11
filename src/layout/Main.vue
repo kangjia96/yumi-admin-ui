@@ -13,5 +13,6 @@ defineOptions({ name: 'Main' })
 <style scoped>
 .main {
   background: var(--color-background-soft);
+  padding: 10px;
 }
 </style>
