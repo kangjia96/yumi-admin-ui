@@ -1,5 +1,5 @@
 <script setup></script>
 
-<template>操作日志</template>
+<template><div>操作日志</div></template>
 
 <style scoped></style>

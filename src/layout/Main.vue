@@ -5,7 +5,13 @@ defineOptions({ name: 'Main' })
 <template>
   <main class="main">
     <el-scrollbar height="calc(100vh - 60px - 40px - 20px)">
-      <router-view />
+      <router-view v-slot="{ Component, route }" class="flex-1">
+        <transition name="fade-slide" mode="out-in">
+          <keep-alive :include="[]">
+            <component :is="Component" :key="route.fullPath" />
+          </keep-alive>
+        </transition>
+      </router-view>
     </el-scrollbar>
   </main>
 </template>

@@ -1,5 +1,5 @@
 <script setup></script>
 
-<template>角色</template>
+<template><div>角色</div></template>
 
 <style scoped></style>

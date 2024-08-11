@@ -74,7 +74,9 @@ export function toggleTheme(event, init = false) {
       {
         duration: 500,
         easing: 'ease-in',
-        pseudoElement: willDark ? '::view-transition-new(root)' : '::view-transition-old(root)'
+        pseudoElement: willDark
+          ? '::view-transition.css-new(root)'
+          : '::view-transition.css-old(root)'
       }
     )
   })
