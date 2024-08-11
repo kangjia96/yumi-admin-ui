@@ -2,6 +2,7 @@
 import HeaderView from '@/layout/Header.vue'
 import Sidebar from '@/layout/Sidebar.vue'
 import Main from '@/layout/Main.vue'
+import Footer from '@/layout/Footer.vue'
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import Main from '@/layout/Main.vue'
 
       <Main class="main" />
     </div>
-    <footer>底部</footer>
+    <Footer class="footer" />
   </div>
 </template>
 
@@ -51,7 +52,7 @@ import Main from '@/layout/Main.vue'
   }
 }
 
-footer {
+.footer {
   height: 40px;
   text-align: center;
   line-height: 40px;

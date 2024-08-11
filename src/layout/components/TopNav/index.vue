@@ -5,13 +5,36 @@ defineOptions({ name: 'TopNav' })
 
 const router = useRouter()
 console.log(router.currentRoute.value)
+
+const routerList = [
+  {
+    path: '/dashboard',
+    name: '首页',
+    icon: 'HomeFilled'
+  },
+  {
+    path: '/audit',
+    name: '审计',
+    icon: 'Document'
+  },
+  {
+    path: '/system',
+    name: '系统管理',
+    icon: 'Setting'
+  }
+]
 </script>
 
 <template>
   <nav>
-    <div class="top-menu-item">首页</div>
-    <div class="top-menu-item">审计</div>
-    <div class="top-menu-item">系统管理</div>
+    <div
+      v-for="item in routerList"
+      :class="{ active: router.currentRoute.value.path.includes(item.path) }"
+      class="top-menu-item"
+      @click="router.push(item.path)"
+    >
+      {{ item.name }}
+    </div>
   </nav>
 </template>
 
@@ -28,6 +51,10 @@ nav {
     &:hover {
       color: var(--el-color-primary);
     }
+  }
+
+  .active {
+    color: var(--el-color-primary);
   }
 }
 </style>
