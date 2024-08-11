@@ -1,7 +1,16 @@
 <script setup>
-import { FullScreen, Monitor, Moon, Search, Setting, Sunny, User } from '@element-plus/icons-vue'
+import { FullScreen, Search, Setting, User } from '@element-plus/icons-vue'
+import { useSettingStore } from '@/stores/modules/setting.js'
+import { THEME_SCHEMA_LIST } from '@/utils/setting/theme.js'
 
 defineOptions({ name: 'FastOperation' })
+
+const { changeTheme, theme } = useSettingStore()
+const currentTheme = ref(theme)
+const setTheme = (command, e) => {
+  changeTheme(command, e)
+  currentTheme.value = command
+}
 </script>
 
 <template>
@@ -26,24 +35,16 @@ defineOptions({ name: 'FastOperation' })
       </template>
     </el-dropdown>
 
-    <!-- 颜色主题 -->
-    <el-dropdown>
-      <el-icon class="fast-menu-item" size="20" color="var(--text-color)">
-        <Sunny />
+    <!-- 主题模式 -->
+    <el-dropdown @command="setTheme">
+      <el-icon class="fast-menu-item" size="20">
+        <Component :is="THEME_SCHEMA_LIST[currentTheme].icon" />
       </el-icon>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item>
-            <el-icon size="20"><Monitor /></el-icon>
-            跟随系统
-          </el-dropdown-item>
-          <el-dropdown-item>
-            <el-icon size="20"><Moon /></el-icon>
-            暗色模式
-          </el-dropdown-item>
-          <el-dropdown-item>
-            <el-icon size="20"><Sunny /></el-icon>
-            浅色模式
+          <el-dropdown-item v-for="(value, key) in THEME_SCHEMA_LIST" :command="key">
+            <el-icon size="20"><Component :is="value.icon" /> </el-icon>
+            {{ value.text }}
           </el-dropdown-item>
         </el-dropdown-menu>
       </template>
@@ -87,11 +88,11 @@ defineOptions({ name: 'FastOperation' })
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--text-color);
 
     &:hover {
-      background-color: #2b2b2b;
+      background-color: var(--color-background-mute);
       cursor: pointer;
+      border-radius: 4px;
     }
   }
 
