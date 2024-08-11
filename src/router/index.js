@@ -6,12 +6,49 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      redirect: '/dashboard',
       component: Layout,
       children: [
         {
-          path: '',
+          path: '/dashboard',
           name: 'Dashboard',
-          component: () => import('../views/Dashboard.vue')
+          component: () => import('../views/dashboard/index.vue')
+        }
+      ]
+    },
+    {
+      path: '/audit',
+      name: 'Audit',
+      redirect: '/audit/op-log',
+      component: Layout,
+      children: [
+        {
+          path: '/audit/op-log',
+          name: 'OpLog',
+          component: () => import('../views/audit/op-log/index.vue')
+        }
+      ]
+    },
+    {
+      path: '/system',
+      name: 'System',
+      redirect: '/system/user',
+      component: Layout,
+      children: [
+        {
+          path: '/system/user',
+          name: 'User',
+          component: () => import('../views/system/user/index.vue')
+        },
+        {
+          path: '/system/role',
+          name: 'Role',
+          component: () => import('../views/system/role/index.vue')
+        },
+        {
+          path: '/system/menu',
+          name: 'Menu',
+          component: () => import('../views/system/menu/index.vue')
         }
       ]
     },

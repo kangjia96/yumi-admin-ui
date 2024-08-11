@@ -1,0 +1,85 @@
+/* 颜色定义 */
+:root {
+  --yumi-c-white: #ffffff;
+  --yumi-c-white-soft: #f8f8f8;
+  --yumi-c-white-mute: #f2f2f2;
+
+  --yumi-c-black: #101014;
+  --yumi-c-black-soft: #18181c;
+  --yumi-c-black-mute: #343438;
+
+  --yumi-c-indigo: #2c3e50;
+
+  --yumi-c-divider-light-1: rgba(60, 60, 60, 0.29);
+  --yumi-c-divider-light-2: rgba(60, 60, 60, 0.12);
+  --yumi-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+  --yumi-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+  --yumi-c-text-light-1: var(--yumi-c-indigo);
+  --yumi-c-text-light-2: rgba(60, 60, 60, 0.66);
+  --yumi-c-text-dark-1: var(--yumi-c-white);
+  --yumi-c-text-dark-2: rgba(235, 235, 235, 0.64);
+}
+
+/* 亮色主题色 */
+:root {
+  --color-background: var(--yumi-c-white);
+  --color-background-soft: var(--yumi-c-white-soft);
+  --color-background-mute: var(--yumi-c-white-mute);
+
+  --color-border: var(--yumi-c-divider-light-2);
+  --color-border-hover: var(--yumi-c-divider-light-1);
+
+  --color-text: var(--yumi-c-text-light-1);
+  --color-text-light: var(--yumi-c-text-light-1);
+}
+
+/* 暗色主题色 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--yumi-c-black);
+    --color-background-soft: var(--yumi-c-black-soft);
+    --color-background-mute: var(--yumi-c-black-mute);
+
+    --color-border: var(--yumi-c-divider-dark-2);
+    --color-border-hover: var(--yumi-c-divider-dark-1);
+
+    --color-text: var(--yumi-c-text-dark-1);
+    --color-text-light: var(--yumi-c-text-dark-2);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background-soft);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
