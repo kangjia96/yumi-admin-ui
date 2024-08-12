@@ -5,7 +5,7 @@ import service from '@/utils/service.js'
  */
 export function reqRoutes() {
   return service({
-    url: '/routes',
+    url: '/global/routes',
     method: 'GET'
   })
 }

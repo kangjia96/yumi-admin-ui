@@ -1,11 +1,15 @@
 import router from '@/router/index.js'
 import NProgress from '@/utils/nprogress'
+import { usePermissionStore } from '@/stores/modules/permission.js'
 
 // 白名单路由
 const whiteList = ['/login']
 
 router.beforeEach(async (to, from, next) => {
   NProgress.start()
+
+  const { obtainRoutes } = usePermissionStore()
+  await obtainRoutes()
   next()
   // NProgress.done()
   // const hasToken = localStorage.getItem('token');
