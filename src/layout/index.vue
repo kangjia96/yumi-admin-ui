@@ -3,12 +3,21 @@ import HeaderView from '@/layout/Header.vue'
 import Sidebar from '@/layout/Sidebar.vue'
 import Main from '@/layout/Main.vue'
 import Footer from '@/layout/Footer.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const dashboard = computed(
+  () => router.currentRoute.value.path === '/' || router.currentRoute.value.path === '/dashboard'
+)
 </script>
 
 <template>
   <div class="app">
     <HeaderView class="header" />
-    <div class="middle">
+    <div class="middle" v-if="dashboard">
+      <Main class="main" />
+    </div>
+    <div class="middle" v-else>
       <Sidebar class="aside" />
 
       <Main class="main" />
